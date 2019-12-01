@@ -1,0 +1,35 @@
+body {
+    font-family: 'Tangerine', cursive;
+    background-color: white;
+    color: forestgreen;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+h1{
+    font-family: 'Sacramento', cursive;
+}
+
+nav{
+    background-color: darkseagreen;
+}
+
+.navbar-brand {
+    font-family: 'Sacramento', cursive;
+    font-size: 2em;
+    color:forestgreen;
+}
+
+.nav-item {
+    font-size: 1.5em;
+}
+
+p .menu {
+    font-size: 0.5em;
+}

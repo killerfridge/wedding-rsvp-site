@@ -1,0 +1,58 @@
+body {
+    font-family: 'Tangerine', cursive;
+    background-color: white;
+    color: forestgreen;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+    font-size: .7em;
+}
+
+h1{
+    font-family: 'Tangerine', cursive;
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+nav{
+    background-color: darkseagreen;
+}
+
+.navbar-brand {
+    font-family: 'Sacramento', cursive;
+    font-size: 1em;
+    color:forestgreen;
+}
+
+.nav-item {
+    font-size: 0.75em;
+    font-family: 'Tangerine', cursive;
+}
+
+p .menu {
+    font-size: 0.5em;
+}
+
+.bridal-party{
+    background-color: transparent;
+}
+
+a.anchor{
+    display: block;
+    position: relative;
+    top: -85px;
+    visibility: hidden;
+}
+
+a.dropdown-item{
+    font-size: 1.4em;
+}
