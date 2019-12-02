@@ -1,7 +1,7 @@
 {% load static %}
-<div class="container text-center pt-5">
+<div class="container text-center pt-1">
     <a class="anchor" id="location"></a>
-    <h1>Location</h1>
+    <h1><b>Location</b></h1>
     <div class="container px-1">
         <div class="row">
             <div class="col-4 my-auto">
@@ -14,14 +14,18 @@
                 </p>
             </div>
             <div class="col-8 pt-3">
-                <img src="{% static 'rsvp/img/church.jpg' %}" width="80%" alt="The Church">
+                <a href="https://www.google.com/maps/place/St+Thomas+of+Canterbury+R+C+Church/@51.272975,0.1862887,15z/data=!4m2!3m1!1s0x0:0xb75bd39cf667f50e?sa=X&ved=2ahUKEwiMwcTIw5XmAhVDilwKHfEcApIQ_BIwDXoECAsQCA">
+                    <img class="figure-img img-fluid rounded" src="{% static 'rsvp/img/church.jpg' %}" width="80%" alt="The Church">
+                </a>
             </div>
         </div>
     </div>
     <div class="container px-1">
         <div class="row">
             <div class="col-8 pt-3">
-                <img src="{% static 'rsvp/img/hotel.jpg' %}" width="80%" alt="The Hotel">
+                <a href="https://www.google.com/maps/place/The+Spa+Hotel/@51.1307338,0.2442338,17z/data=!3m1!4b1!4m8!3m7!1s0x47df444ef1fa521d:0xdafc4ce91591fcb5!5m2!4m1!1i2!8m2!3d51.1307305!4d0.2464278">
+                    <img class="figure-img img-fluid rounded" src="{% static 'rsvp/img/hotel.jpg' %}" width="80%" alt="The Hotel">
+                </a>
             </div>
             <div class="col-4 my-auto">
                 <h2>The Reception</h2>

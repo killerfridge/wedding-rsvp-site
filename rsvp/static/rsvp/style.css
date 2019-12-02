@@ -1,8 +1,8 @@
 body {
-    font-family: 'Tangerine', cursive;
+    font-family: 'Baskervville', cursive;
     background-color: white;
-    color: forestgreen;
-    font-size: 2em;
+    color: #333333;
+    font-size: 1.4em;
     font-weight: normal;
 }
 
@@ -15,12 +15,18 @@ p {
 }
 
 h1{
-    font-family: 'Tangerine', cursive;
-    font-size: 2em;
+    font-family: 'Baskervville', cursive;
+    font-size: 1.2em;
+    color:forestgreen;
 }
 
 h2{
-    font-size: 1.5em;
+    font-size: 1em;
+    color: forestgreen;
+}
+
+h3 {
+    font-size: .8em;
 }
 
 nav{
@@ -29,17 +35,22 @@ nav{
 
 .navbar-brand {
     font-family: 'Sacramento', cursive;
-    font-size: 1em;
-    color:forestgreen;
+    font-size: 1.5em;
+    color:white;
 }
 
-.nav-item {
-    font-size: 0.75em;
-    font-family: 'Tangerine', cursive;
+li.nav-item {
+    font-size: .8em;
+    font-family: 'Baskervville', cursive;
+    color:white;
+}
+
+a.nav-link{
+    color:white
 }
 
 p .menu {
-    font-size: 0.5em;
+    font-size: 1em;
 }
 
 .bridal-party{
@@ -55,4 +66,14 @@ a.anchor{
 
 a.dropdown-item{
     font-size: 1.4em;
+}
+
+b.event_headings{
+    font-size: 1em;
+    color:forestgreen;
+    font-weight: bolder;
+}
+
+div.vh{
+    height:100vh;
 }
