@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.views.generic import TemplateView
+from .models import User, Guest
 
 # Create your views here.
 
@@ -27,4 +28,15 @@ class BridalParty(TemplateView):
 
 class MainEvent(TemplateView):
 
+    model = Guest
+
     template_name = 'rsvp/main.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # get the user object using the user id of the logged in person
+        user = User.objects.get(pk=self.request.user.pk)
+        # send the guests queryset to the context under 'guests'
+        context['guests'] = Guest.objects.filter(user=user)
+        return context
+

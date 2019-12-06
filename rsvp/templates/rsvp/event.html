@@ -1,16 +1,36 @@
-<div class="container text-center pt-5 align-middle" style="height:90vh; display: table;">
+<div class="container text-center pt-5 align-middle event" style="height:90vh; display: table;">
     <div style="display: table-cell; vertical-align: middle;">
     <a class="anchor" id="main"></a>
-    <h1><b>The Main Event</b></h1>
-    It is our pleasure to invite you to the wedding of<br>
+        {% spaceless %}
+        Dear {% for guest in guests %}
+        {% if forloop.first %}
+        <span>{{ guest.first }}</span>
+        {% elif forloop.last %}
+        <span>{% if guests|length > 2%},{% endif %} and {{ guest.first }}</span>
+        {% else %}
+        <span>, {{ guest.first }}</span>
+        {% endif %}
+        {% endfor %}<span>.</span>
+        {% endspaceless %}<br><br>
+        {% if user.groups.all.0.name == 'DayGuest' %}
+    It is our pleasure to invite you to the wedding of
+        {% else %}
+        It is our pleasure to invite you to celebrate the wedding of
+        {% endif %}
+        <br>
     <b class="event_headings">Miss Maryam Nahab</b><br>
     and<br>
     <b class="event_headings">Mr Daniel Russell-Brain</b><br>
     on the<br>
+        {% if user.groups.all.0.name == "DayGuest" %}
     <b class="event_headings">2<sup>nd</sup> May 2020 at 12:30pm</b><br>
     for the Ceremony to be held at<br>
     <b class="event_headings">St Thomas RC Church in Sevenoaks</b><br>
     followed by wedding breakfast and reception at<br>
+        {% else %}
+        <b class="event_headings">2<sup>nd</sup> May 2020 at 19:30pm</b><br>
+    for the Reception to be held at<br>
+        {% endif %}
     <b class="event_headings">The Spa Hotel in Tunbridge Wells</b><br><br>
     <h4 style="font-size:.8em;">Please be aware this will be an adults only event</h4>
     </div>

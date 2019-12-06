@@ -29,14 +29,18 @@
                 <a class="dropdown-item" href="#bridal">Loving Parents</a>
                 <a class="dropdown-item" href="#bridesmaids">Bridesmaids and Bestm'n</a>
                 <a class="dropdown-item" href="#ushers">Ushers</a>
+                {% if user.groups.all.0.name == 'DayGuest' %}
                 <a class="dropdown-item" href="#pageboy">Pageboys and Flower Girl</a>
+                {% endif %}
             </div>
       </li>
         <li class="nav-item">
         <a class="nav-link" href="#location">Location</a>
       </li>
+        {% if user.groups.all.0.name == 'DayGuest' %}
         <li class="nav-item">
         <a class="nav-link" href="#menu">Menu</a>
+            {% endif %}
       </li>
         <li class="nav-item">
         <a class="nav-link" href="#">RSVP</a>

@@ -4,10 +4,16 @@
 <hr size="2">
     {% include 'rsvp/bridal.html' %}
 <hr size="2">
+{% if user.groups.all.0.name == 'DayGuest' %}
     {% include 'rsvp/location.html' %}
+{% else %}
+    {% include 'rsvp/location_day.html' %}
+{% endif %}
 <hr size="2">
+{% if user.groups.all.0.name == 'DayGuest' %}
     {% include 'rsvp/menu.html' %}
 <hr size="2">
+{% endif %}
     {% include 'rsvp/accommodation.html' %}
 <hr size="2">
     {% include 'rsvp/faq.html' %}
