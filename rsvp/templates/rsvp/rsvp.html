@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% load static %}
+<a class="anchor" id="rsvp"></a>
+<div class="container text-center pt-5 align-middle event" style="height:90vh; display: table;">
+    <div style="display: table-cell; vertical-align: middle;">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.management_form }}
+            {{ form.non_form_errors }}
+            {% for zip_form in forms %}
+                {{ zip_form.1.first }} {{ zip_form.1.last }} {{ zip_form.0.id.as_hidden }}
+                {{ zip_form.0.attending }}<br>
+                Starter Choice: {{ zip_form.0.starter }}<br>
+                Main Choice: {{ zip_form.0.main }}<br>
+                Dietary Requirements: {{ zip_form.0.dietary }}
+            <hr>
+            {% endfor %}
+            <input type="submit">
+        </form>
+    </div>
+</div>
