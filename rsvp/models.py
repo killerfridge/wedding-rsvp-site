@@ -18,8 +18,14 @@ class Guest(models.Model):
 
     MAIN_CHOICES = [
         ('a', '------'),
-        ('b', 'Slow Roast Rump Beef'),
+        ('b', 'Slow Roast Rump Beef - RARE'),
+        ('b2', 'Slow Roast Rump Beef - WELL DONE'),
         ('c', 'Wild Mushroom and Goats Cheese Wellington (V)')
+    ]
+
+    DESSERT_CHOICES = [
+        ('a', 'Sticky Toffee Pudding'),
+        ('b', 'Chocolate Delice with Cider and Black')
     ]
 
     first = models.CharField(max_length=100)
@@ -27,9 +33,10 @@ class Guest(models.Model):
     email = models.EmailField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     attending = models.BooleanField(default=False, choices=ATTEND_CHOICES)
-    starter = models.CharField(max_length=200, choices=STARTER_CHOICES, default=0)
-    main = models.CharField(max_length=200, choices=MAIN_CHOICES, default=0)
-    dietary = models.CharField(max_length=200, null=True, blank=True)
+    starter = models.CharField(max_length=200, choices=STARTER_CHOICES, default='a')
+    main = models.CharField(max_length=200, choices=MAIN_CHOICES, default='a')
+    dessert = models.CharField(max_length=200, choices=DESSERT_CHOICES, default='a')
+    dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
 
     def full_name(self):
         return f'{self.first} {self.last}'

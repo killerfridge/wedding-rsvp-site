@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.views.generic import TemplateView
 from .models import User, Guest
-from .forms import RSVPForm, RSVPFormset
+from .forms import RSVPFormset  #RSVPForm
 # Create your views here.
 
 

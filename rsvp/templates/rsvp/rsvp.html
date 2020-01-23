@@ -1,20 +1,24 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <a class="anchor" id="rsvp"></a>
 <div class="container text-center pt-5 align-middle event" style="height:90vh; display: table;">
     <div style="display: table-cell; vertical-align: middle;">
+        <h1><b>RSVP</b></h1><br>
+        <div class="container px-1">
         <form method="post">
             {% csrf_token %}
             {{ form.management_form }}
             {{ form.non_form_errors }}
             {% for zip_form in forms %}
-                {{ zip_form.1.first }} {{ zip_form.1.last }} {{ zip_form.0.id.as_hidden }}
-                {{ zip_form.0.attending }}<br>
-                Starter Choice: {{ zip_form.0.starter }}<br>
-                Main Choice: {{ zip_form.0.main }}<br>
-                Dietary Requirements: {{ zip_form.0.dietary }}
+                {{ zip_form.1.first }} {{ zip_form.1.last }} {{ zip_form.0.id.as_hidden }}<br>
             <hr>
+            {{ zip_form.0.starter }}
+            {{ zip_form.0.main }}
+            {{ zip_form.0.dessert }}
+            {{ zip_form.0.dietary }}
             {% endfor %}
             <input type="submit">
         </form>
+        </div>
     </div>
 </div>
