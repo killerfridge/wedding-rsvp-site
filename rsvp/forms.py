@@ -5,23 +5,23 @@ from django.forms.widgets import Input
 from crispy_forms.helper import FormHelper
 
 
-# class RSVPForm(forms.ModelForm):
-#
-#     def __init__(self, *args, **kwargs):
-#         super(RSVPForm, self).__init__(*args, **kwargs)
-#         self.helper = FormHelper()
-#         self.helper.form_show_labels = False
-#
-#     class Meta:
-#         model = Guest
-#         fields = [
-#             'attending',
-#             'starter',
-#             'main',
-#             'dessert',
-#             'dietary',
-#             'id',
-#         ]
+class RSVPForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(RSVPForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = False
+
+    class Meta:
+        model = Guest
+        fields = [
+            'attending',
+            'starter',
+            'main',
+            'dessert',
+            'dietary',
+            'id',
+        ]
 
 
 RSVPFormset = inlineformset_factory(

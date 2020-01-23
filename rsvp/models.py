@@ -18,21 +18,22 @@ class Guest(models.Model):
 
     MAIN_CHOICES = [
         ('a', '------'),
-        ('b', 'Slow Roast Rump Beef - RARE'),
+        ('b', 'Slow Roast Rump Beef - MEDIUM RARE'),
         ('b2', 'Slow Roast Rump Beef - WELL DONE'),
         ('c', 'Wild Mushroom and Goats Cheese Wellington (V)')
     ]
 
     DESSERT_CHOICES = [
-        ('a', 'Sticky Toffee Pudding'),
-        ('b', 'Chocolate Delice with Cider and Black')
+        ('a', '------'),
+        ('b', 'Sticky Toffee Pudding'),
+        ('c', 'Chocolate Delice with Cider and Black')
     ]
 
     first = models.CharField(max_length=100)
     last = models.CharField(max_length=100)
     email = models.EmailField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    attending = models.BooleanField(default=False, choices=ATTEND_CHOICES)
+    attending = models.BooleanField(default=True, choices=ATTEND_CHOICES, verbose_name='Presence')
     starter = models.CharField(max_length=200, choices=STARTER_CHOICES, default='a')
     main = models.CharField(max_length=200, choices=MAIN_CHOICES, default='a')
     dessert = models.CharField(max_length=200, choices=DESSERT_CHOICES, default='a')
