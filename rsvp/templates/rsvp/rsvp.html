@@ -1,6 +1,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <a class="anchor" id="rsvp"></a>
+
 <div class="container text-center pt-5 align-middle event" style="height:90vh; display: table;">
     <div style="display: table-cell; vertical-align: middle;">
         <h1><b>RSVP</b></h1><br>
@@ -12,10 +13,17 @@
             {% for zip_form in forms %}
             <h2>{{ zip_form.1.first }} {{ zip_form.1.last }}</h2>{{ zip_form.0.id.as_hidden }}
             {{ zip_form.0.attending|as_crispy_field }}
+            {% if user.groups.all.0.name == 'DayGuest' %}
             {{ zip_form.0.starter|as_crispy_field }}
             {{ zip_form.0.main|as_crispy_field }}
             {{ zip_form.0.dessert|as_crispy_field }}
             {{ zip_form.0.dietary|as_crispy_field }}
+            {% else %}
+            {{ zip_form.0.starter.as_hidden }}
+            {{ zip_form.0.main.as_hidden }}
+            {{ zip_form.0.dessert.as_hidden }}
+            {{ zip_form.0.dietary.as_hidden }}
+            {% endif %}
             <hr><br>
             {% endfor %}
             <input type="submit" value="RSVP">

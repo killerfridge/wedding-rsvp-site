@@ -2,11 +2,13 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
 
+<h1>Maryam And Dan's Wedding!!!</h1>
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   <button type="submit">Login</button>
 </form>
 

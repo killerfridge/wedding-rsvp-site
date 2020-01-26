@@ -16,9 +16,7 @@
 {% endif %}
     {% include 'rsvp/accommodation.html' %}
 <hr size="2">
-{% if user.groups.all.0.name == 'DayGuest' %}
     {% include 'rsvp/rsvp.html' %}
-{% endif %}
 <hr size="2">
     {% include 'rsvp/faq.html' %}
 {% endblock %}

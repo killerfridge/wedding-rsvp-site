@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
 from django.views.generic import TemplateView
 from .models import User, Guest
-from .forms import RSVPFormset  #RSVPForm
+from .forms import RSVPFormset
+from django.contrib import messages
 # Create your views here.
 
 
@@ -60,10 +60,13 @@ class MainEvent(TemplateView):
         guests = self.get_guests()
         forms = zip(form, guests)
         if form.is_valid():
-            print('Form is valid!')
+            messages.success(request, 'RSVP Successfully Sent!')
             form.save()
         else:
-            print('Form is NOT valid!')
+            messages.error(
+                request,
+                'There was an error in sending the RSVP, please try again or contact Dan or Maryam Directly'
+            )
             print(form.errors)
         context = self.get_context_data()
         context['forms'] = forms
