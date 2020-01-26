@@ -1,26 +1,13 @@
-<div class="container text-center">
+<a class="anchor" id="faq"></a>
+<div class="container pt-1 vh text-center" style="display: table;">
+    <div style="display:table-cell; vertical-align: middle;">
     <h1>Q&A</h1>
     <h2>If you're note sure, just ask!</h2>
-</div>
-<div class="container text-left">
-    <ul>
-        <li>Will It Be Cold?
-            <ul>
-                <li>
-                    A: It's the beginning of May in the UK, your guess is as good as ours - maybe bring a jacket or shawl or sunglasses, but everything will be inside so you will be comfortable
-                </li>
-            </ul>
-        </li>
-        <li>
-            What is the Dress Code?<ul>
-            <li>
-                A: Formal, so your best rags are required
-            </li>
-        </ul>
-            <li>Are children on the guest list?
-                <ul>
-                    <li>Is little Timmy's name on the invite?</li>
-                </ul>
-        </li>
+
+        {% for question in questions %}
+        <h3 class="faq">Q: {{ question.question }}</h3>
+        <p>A: {{ question.answer|safe }}</p>
+        {% endfor %}
     </ul>
+</div>
 </div>

@@ -29,6 +29,11 @@ h3 {
     font-size: .8em;
 }
 
+h3.faq{
+    font-size: .8em;
+    color:forestgreen;
+}
+
 nav{
     background-color: darkseagreen;
 }
@@ -49,7 +54,7 @@ a.nav-link{
     color:white
 }
 
-p .menu {
+p.menu {
     font-size: 1em;
 }
 
@@ -86,4 +91,8 @@ div.vh{
 
 div.event{
     font-weight: normal;
+}
+
+li.faq{
+    font-size: 0.8em;
 }

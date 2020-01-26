@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import User, Guest
+from .models import User, Guest, Question
 from .forms import RSVPFormset
 from django.contrib import messages
 # Create your views here.
@@ -32,6 +32,12 @@ class MainEvent(TemplateView):
 
     template_name = 'rsvp/main.html'
 
+    def get_questions(self):
+        if len(self.request.user.groups.all()) > 0:
+            return Question.objects.all()
+        else:
+            return Question.objects.filter(day_question=False)
+
     def get_guests(self):
         return Guest.objects.filter(user=self.get_user())
 
@@ -44,10 +50,12 @@ class MainEvent(TemplateView):
         user = self.get_user()
         # send the guests queryset to the context under 'guests'
         context['guests'] = Guest.objects.filter(user=user)
+        context['questions'] = self.get_questions()
         return context
 
     def get(self, request):
         form = RSVPFormset(instance=self.get_user())
+        self.get_questions()
         guests = self.get_guests()
         forms = zip(form, guests)
         context = self.get_context_data()
