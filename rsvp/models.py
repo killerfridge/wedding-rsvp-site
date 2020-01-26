@@ -51,3 +51,10 @@ class Guest(models.Model):
     @property
     def is_attending(self):
         return self.attending
+
+
+class Question(models.Model):
+
+    question = models.CharField(max_length=200)
+    answer = models.CharField(max_length=200)
+    day_question = models.BooleanField(default=False)

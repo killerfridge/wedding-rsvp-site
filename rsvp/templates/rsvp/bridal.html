@@ -15,6 +15,7 @@
             <div class="col-6">
                 <H2>Mr & Mrs Russell-Brain</H2>
                 <img class="figure-img img-fluid rounded party-image" src="#">
+                <p>In loving memory of Christopher Russell-Brain</p>
             </div>
         </div>
     <hr size="2">
@@ -89,4 +90,37 @@
                 </div>
         </div>
     </div>
+    {% if user.groups.all.0.name == 'DayGuest' %}
+    <hr size="2">
+    <a class="anchor" id="kids"></a>
+    <div class="container pt-1 vh" style="display: table;">
+        <div style="display:table-cell; vertical-align: middle;">
+                <div class="row pt-1">
+                    <div class="container text-center">
+                        <h1><b>Page Boys and Flower Girl</b></h1><br>
+                        <h3 style="font-size:.9em;">Look out for the </h3>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col">
+                        <img class="figure-img rounded party-image" src="{% static 'rsvp/img/rhys.jpg' %}" alt="Rhys">
+                        <h3>Rhys Griffiths</h3>
+                    </div>
+                    <div class="col">
+                        <img class="figure-img rounded party-image" src="{% static 'rsvp/img/hugo.jpg' %}" alt="Hugo">
+                        <h3>Hugo Griffiths</h3>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col pt-2 my-auto">
+                        <img class="figure-img rounded party-image" src="{% static 'rsvp/img/oscar.jpg' %}" alt="Oscar">
+                        <h3>Oscar Nahab</h3>
+                    </div>
+                    <div class="col pt-2">
+                        <img class="figure-img rounded party-image" src="{% static 'rsvp/img/scarlett.jpg' %}" alt="Scarlett">
+                        <h3>Scarlett Nahab</h3>
+                    </div>
+                </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
