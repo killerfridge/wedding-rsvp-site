@@ -10,7 +10,7 @@
         {% else %}
         <span>, {{ guest.first }}</span>
         {% endif %}
-        {% endfor %}<span>.</span>
+        {% endfor %}<span>,</span>
         {% endspaceless %}<br><br>
         {% if user.groups.all.0.name == 'DayGuest' %}
     It is our pleasure to invite you to the Wedding of
@@ -33,5 +33,6 @@
         {% endif %}
     <b class="event_headings">The Spa Hotel in Tunbridge Wells</b><br><br>
     <h4 style="font-size:.8em;">Please be aware this will be an adults only event</h4>
+        <button type="submit" data-toggle="modal" data-target="#rsvpModal">RSVP</button>
     </div>
 </div>

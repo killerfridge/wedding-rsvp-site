@@ -32,12 +32,32 @@ class Guest(models.Model):
     first = models.CharField(max_length=100)
     last = models.CharField(max_length=100)
     email = models.EmailField()
+    child = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     attending = models.BooleanField(default=True, choices=ATTEND_CHOICES, verbose_name='Presence')
     starter = models.CharField(max_length=200, choices=STARTER_CHOICES, default='a')
     main = models.CharField(max_length=200, choices=MAIN_CHOICES, default='a')
     dessert = models.CharField(max_length=200, choices=DESSERT_CHOICES, default='a')
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
+
+    if f'{child}' == 'True':
+
+        starter.choices = [
+            ('a', '------'),
+            ('b', 'Garlic Bread'),
+        ]
+
+        main.choices = [
+            ('a', '------'),
+            ('c', 'Macaroni and Cheese'),
+            ('b', 'Beefburger and fries'),
+            ('b2', 'Cheeseburger and fries'),
+        ]
+        dessert.choices = [
+            ('a', '------'),
+            ('b', 'Selection of ice creams and berries'),
+            ('c', 'Apply crumble and custard')
+        ]
 
     def full_name(self):
         return f'{self.first} {self.last}'
