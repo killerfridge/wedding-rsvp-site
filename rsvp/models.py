@@ -41,22 +41,22 @@ class Guest(models.Model):
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(Guest).__init__(*args, **kwargs)
 
         if self.child:
 
-            self.starter.choices = [
+            self._meta.get_field_by_name('starter')[0]._choices = [
                 ('a', '------'),
                 ('b', 'Garlic Bread'),
             ]
 
-            self.main.choices = [
+            self._meta.get_field_by_name('main')[0]._choices = [
                 ('a', '------'),
                 ('c', 'Macaroni and Cheese'),
                 ('b', 'Beefburger and fries'),
                 ('b2', 'Cheeseburger and fries'),
             ]
-            self.dessert.choices = [
+            self._meta.get_field_by_name('dessert')[0]._choices = [
                 ('a', '------'),
                 ('b', 'Selection of ice creams and berries'),
                 ('c', 'Apply crumble and custard')
