@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECRET_KEY = '-0v%6z2owh3y=9$rtb1%k&mpd2y9@)x0d2of$won1im8mgoq7q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG_VALUE')
+DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
 
 ALLOWED_HOSTS = ['wedding-rsvp-site.herokuapp.com', 'www.maryam-and-dans-wedding.co.uk']
 
