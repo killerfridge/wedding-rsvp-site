@@ -27,7 +27,7 @@ class RSVPForm(forms.ModelForm):
 RSVPFormset = inlineformset_factory(
     User,
     Guest,
-    fields=('attending', 'starter', 'main', 'dessert', 'dietary', 'id'),
+    fields=('attending', 'starter', 'main', 'dessert', 'child_starter', 'child_main', 'child_dessert', 'dietary', 'id'),
     can_delete=False,
     extra=0,
 )

@@ -16,6 +16,11 @@ class Guest(models.Model):
         ('c', 'Heritage Beetroot Tart (V)')
     ]
 
+    CHILD_STARTERS = [
+                ('a', '------'),
+                ('b', 'Garlic Bread'),
+            ]
+
     MAIN_CHOICES = [
         ('a', '------'),
         ('b', 'Slow Roast Rump Beef - MEDIUM RARE'),
@@ -23,11 +28,24 @@ class Guest(models.Model):
         ('c', 'Wild Mushroom and Goats Cheese Wellington (V)')
     ]
 
+    CHILD_MAINS = [
+                ('a', '------'),
+                ('c', 'Macaroni and Cheese'),
+                ('b', 'Beefburger and fries'),
+                ('b2', 'Cheeseburger and fries'),
+            ]
+
     DESSERT_CHOICES = [
         ('a', '------'),
         ('b', 'Sticky Toffee Pudding'),
         ('c', 'Chocolate Delice with Cider and Black')
     ]
+
+    CHILD_DESSERTS = [
+                ('a', '------'),
+                ('b', 'Selection of ice creams and berries'),
+                ('c', 'Apple crumble and custard')
+            ]
 
     first = models.CharField(max_length=100)
     last = models.CharField(max_length=100)
@@ -38,29 +56,10 @@ class Guest(models.Model):
     starter = models.CharField(max_length=200, choices=STARTER_CHOICES, default='a')
     main = models.CharField(max_length=200, choices=MAIN_CHOICES, default='a')
     dessert = models.CharField(max_length=200, choices=DESSERT_CHOICES, default='a')
+    child_starter = models.CharField(max_length=200, choices=CHILD_STARTERS, default='a')
+    child_main = models.CharField(max_length=200, choices=CHILD_MAINS, default='a')
+    child_dessert = models.CharField(max_length=200, choices=CHILD_DESSERTS, default='a')
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
-
-    def __init__(self, *args, **kwargs):
-        super(Guest).__init__(*args, **kwargs)
-
-        if self.child:
-
-            self._meta.get_field_by_name('starter')[0]._choices = [
-                ('a', '------'),
-                ('b', 'Garlic Bread'),
-            ]
-
-            self._meta.get_field_by_name('main')[0]._choices = [
-                ('a', '------'),
-                ('c', 'Macaroni and Cheese'),
-                ('b', 'Beefburger and fries'),
-                ('b2', 'Cheeseburger and fries'),
-            ]
-            self._meta.get_field_by_name('dessert')[0]._choices = [
-                ('a', '------'),
-                ('b', 'Selection of ice creams and berries'),
-                ('c', 'Apply crumble and custard')
-            ]
 
     def full_name(self):
         return f'{self.first} {self.last}'

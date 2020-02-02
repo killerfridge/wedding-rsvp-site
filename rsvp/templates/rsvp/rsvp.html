@@ -26,10 +26,23 @@
                     <h2>{{ zip_form.1.first }} {{ zip_form.1.last }}</h2>{{ zip_form.0.id.as_hidden }}
                     {{ zip_form.0.attending|as_crispy_field }}
                     {% if user.groups.all.0.name == 'DayGuest' %}
-                    {{ zip_form.0.starter|as_crispy_field }}
-                    {{ zip_form.0.main|as_crispy_field }}
-                    {{ zip_form.0.dessert|as_crispy_field }}
-                    {{ zip_form.0.dietary|as_crispy_field }}
+                    {% if zip_form.1.child %}
+                        {{ zip_form.0.starter.as_hidden }}
+                        {{ zip_form.0.main.as_hidden  }}
+                        {{ zip_form.0.dessert.as_hidden }}
+                        {{ zip_form.0.child_starter|as_crispy_field }}
+                        {{ zip_form.0.child_main|as_crispy_field }}
+                        {{ zip_form.0.child_dessert|as_crispy_field }}
+                        {{ zip_form.0.dietary|as_crispy_field }}
+                    {% else %}
+                        {{ zip_form.0.starter|as_crispy_field }}
+                        {{ zip_form.0.main|as_crispy_field }}
+                        {{ zip_form.0.dessert|as_crispy_field}}
+                        {{ zip_form.0.child_starter.as_hidden }}
+                        {{ zip_form.0.child_main.as_hidden }}
+                        {{ zip_form.0.child_dessert.as_hidden }}
+                        {{ zip_form.0.dietary.as_hidden }}
+                    {% endif %}
                     {% else %}
                     {{ zip_form.0.starter.as_hidden }}
                     {{ zip_form.0.main.as_hidden }}
