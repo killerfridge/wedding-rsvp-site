@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ['wedding-rsvp-site.herokuapp.com']
+ALLOWED_HOSTS = ['wedding-rsvp-site.herokuapp.com', 'www.maryam-and-dans-wedding.co.uk']
 
 
 # Application definition
