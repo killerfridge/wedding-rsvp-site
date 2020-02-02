@@ -40,24 +40,27 @@ class Guest(models.Model):
     dessert = models.CharField(max_length=200, choices=DESSERT_CHOICES, default='a')
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
 
-    if f'{child}' == 'True':
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-        starter.choices = [
-            ('a', '------'),
-            ('b', 'Garlic Bread'),
-        ]
+        if self.child:
 
-        main.choices = [
-            ('a', '------'),
-            ('c', 'Macaroni and Cheese'),
-            ('b', 'Beefburger and fries'),
-            ('b2', 'Cheeseburger and fries'),
-        ]
-        dessert.choices = [
-            ('a', '------'),
-            ('b', 'Selection of ice creams and berries'),
-            ('c', 'Apply crumble and custard')
-        ]
+            self.starter.choices = [
+                ('a', '------'),
+                ('b', 'Garlic Bread'),
+            ]
+
+            self.main.choices = [
+                ('a', '------'),
+                ('c', 'Macaroni and Cheese'),
+                ('b', 'Beefburger and fries'),
+                ('b2', 'Cheeseburger and fries'),
+            ]
+            self.dessert.choices = [
+                ('a', '------'),
+                ('b', 'Selection of ice creams and berries'),
+                ('c', 'Apply crumble and custard')
+            ]
 
     def full_name(self):
         return f'{self.first} {self.last}'
