@@ -89,6 +89,12 @@ div.vh{
     max-width: 300px;
 }
 
+.family-image{
+    height:auto;
+    width: 80%;
+    max-width: 500px;
+}
+
 div.event{
     font-weight: normal;
 }
