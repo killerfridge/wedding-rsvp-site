@@ -60,6 +60,7 @@ class Guest(models.Model):
     child_main = models.CharField(max_length=200, choices=CHILD_MAINS, default='a')
     child_dessert = models.CharField(max_length=200, choices=CHILD_DESSERTS, default='a')
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
+    order = models.IntegerField(default=0)
 
     def full_name(self):
         return f'{self.first} {self.last}'
@@ -74,12 +75,19 @@ class Guest(models.Model):
     def is_attending(self):
         return self.attending
 
+    class Meta:
+        ordering = ['order']
+
 
 class Question(models.Model):
 
     question = models.CharField(max_length=200)
     answer = models.TextField()
     day_question = models.BooleanField(default=False)
+    order = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.question}'
+
+    class Meta:
+        ordering = ['order']
