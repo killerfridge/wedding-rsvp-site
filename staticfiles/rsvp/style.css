@@ -1,0 +1,98 @@
+body {
+    font-family: 'Baskervville', cursive;
+    background-color: white;
+    color: #333333;
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+    font-size: .7em;
+}
+
+h1{
+    font-family: 'Baskervville', cursive;
+    font-size: 1.2em;
+    color:forestgreen;
+}
+
+h2{
+    font-size: 1em;
+    color: forestgreen;
+}
+
+h3 {
+    font-size: .8em;
+}
+
+h3.faq{
+    font-size: .8em;
+    color:forestgreen;
+}
+
+nav{
+    background-color: darkseagreen;
+}
+
+.navbar-brand {
+    font-family: 'Sacramento', cursive;
+    font-size: 1.5em;
+    color:white;
+}
+
+li.nav-item {
+    font-size: .8em;
+    font-family: 'Baskervville', cursive;
+    color:white;
+}
+
+a.nav-link{
+    color:white
+}
+
+p.menu {
+    font-size: 1em;
+}
+
+.bridal-party{
+    background-color: transparent;
+}
+
+a.anchor{
+    display: block;
+    position: relative;
+    top: -30px;
+    visibility: hidden;
+}
+
+a.dropdown-item{
+    font-size: 1em;
+}
+
+b.event_headings{
+    font-size: 1em;
+    color:forestgreen;
+    font-weight: bolder;
+}
+
+div.vh{
+    height:100vh;
+}
+
+.party-image{
+    height: auto;
+    width: 80%;
+    max-width: 300px;
+}
+
+div.event{
+    font-weight: normal;
+}
+
+li.faq{
+    font-size: 0.8em;
+}
