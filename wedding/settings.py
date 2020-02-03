@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = '-0v%6z2owh3y=9$rtb1%k&mpd2y9@)x0d2of$won1im8mgoq7q'
+# SECRET_KEY = '-0v%6z2owh3y=9$rtb1%k&mpd2y9@)x0d2of$won1im8mgoq7q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
@@ -131,4 +131,4 @@ LOGOUT_REDIRECT_URL = 'rsvp:home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
