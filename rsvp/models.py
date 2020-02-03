@@ -75,8 +75,18 @@ class Guest(models.Model):
     def is_attending(self):
         return self.attending
 
+    def have_rsvp(self):
+        if self.main != 'a':
+            return True
+        if self.child_main != 'a':
+            return True
+        if not self.attending:
+            return True
+        else:
+            return False
+
     class Meta:
-        ordering = ['order']
+        ordering = ['order', 'last']
 
 
 class Question(models.Model):
