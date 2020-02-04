@@ -23,3 +23,7 @@ urlpatterns = [
     path('', include('rsvp.urls')),
     path('accounts/', include('django.contrib.auth.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+admin.site.site_header = 'M&D Wedding Admin'
+admin.site.site_title = 'M&D Wedding Admin'
+admin.site.index_title = 'Welcome to Maryam and Dan\'s Wedding Portal'
