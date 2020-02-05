@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+
 # Create your models here.
 
 
 class Guest(models.Model):
-
     ATTEND_CHOICES = [
         (True, 'Will Be Attending'),
         (False, 'Will Not Be Attending')
@@ -17,9 +18,10 @@ class Guest(models.Model):
     ]
 
     CHILD_STARTERS = [
-                ('a', '------'),
-                ('b', 'Garlic Bread'),
-            ]
+        ('a', '------'),
+        ('b', 'Garlic Bread'),
+        ('c', 'Strawberry, melon, and pineapple salad'),
+    ]
 
     MAIN_CHOICES = [
         ('a', '------'),
@@ -29,11 +31,11 @@ class Guest(models.Model):
     ]
 
     CHILD_MAINS = [
-                ('a', '------'),
-                ('c', 'Macaroni and Cheese'),
-                ('b', 'Beefburger and fries'),
-                ('b2', 'Cheeseburger and fries'),
-            ]
+        ('a', '------'),
+        ('c', 'Macaroni and Cheese'),
+        ('b', 'Beefburger and fries'),
+        ('b2', 'Cheeseburger and fries'),
+    ]
 
     DESSERT_CHOICES = [
         ('a', '------'),
@@ -42,10 +44,9 @@ class Guest(models.Model):
     ]
 
     CHILD_DESSERTS = [
-                ('a', '------'),
-                ('b', 'Selection of ice creams and berries'),
-                ('c', 'Apple crumble and custard')
-            ]
+        ('a', '------'),
+        ('b', 'Selection of ice creams and berries'),
+    ]
 
     first = models.CharField(max_length=100)
     last = models.CharField(max_length=100)
@@ -90,7 +91,6 @@ class Guest(models.Model):
 
 
 class Question(models.Model):
-
     question = models.CharField(max_length=200)
     answer = models.TextField()
     day_question = models.BooleanField(default=False)
