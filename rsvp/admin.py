@@ -1,10 +1,30 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group
 from .models import Guest, Question
 from django.db.models import Q
 
 admin.site.register([
     Question
 ])
+
+
+class DayGuestFilter(admin.SimpleListFilter):
+    title = 'Day Guest'
+    parameter_name = 'Day Guest'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('Yes', 'Day Guest'),
+            ('No', 'Evening Guest')
+        )
+
+    def queryset(self, request, queryset):
+        value = self.value()
+        if value == 'Yes':
+            return queryset.filter(user__group='DayGuest')
+        if value == 'No':
+            return queryset.filter(~Q(user__group='DayGuest'))
+        return queryset
 
 
 class HaveRSVPFilter(admin.SimpleListFilter):
@@ -29,7 +49,7 @@ class HaveRSVPFilter(admin.SimpleListFilter):
 @admin.register(Guest)
 class GuestAdmin(admin.ModelAdmin):
     list_display = ('first', 'last', 'rsvp', 'attending')
-    list_filter = ('attending', HaveRSVPFilter)
+    list_filter = ('attending', HaveRSVPFilter, DayGuestFilter)
 
     def rsvp(self, obj):
         if obj.main != 'a':
