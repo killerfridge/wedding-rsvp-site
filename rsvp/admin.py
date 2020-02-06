@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import , User
 from .models import Guest, Question
 from django.db.models import Q
 
@@ -20,10 +20,11 @@ class DayGuestFilter(admin.SimpleListFilter):
 
     def queryset(self, request, queryset):
         value = self.value()
+        qs = User.objects.filter(groups__name='DayGuest')
         if value == 'Yes':
-            return queryset.filter(user__group='DayGuest')
+            return queryset.filter(user__in=[user.id for user in qs])
         if value == 'No':
-            return queryset.filter(~Q(user__group='DayGuest'))
+            return queryset.filter(~Q(user__in=[user.id for user in qs]))
         return queryset
 
 
