@@ -49,10 +49,10 @@ class HaveRSVPFilter(admin.SimpleListFilter):
 
 @admin.register(Guest)
 class GuestAdmin(admin.ModelAdmin):
-    list_display = ('first', 'last', 'rsvp', 'attending')
+    list_display = ('first', 'last', 'received_rsvp', 'attending')
     list_filter = ('attending', HaveRSVPFilter, DayGuestFilter)
 
-    def rsvp(self, obj):
+    def received_rsvp(self, obj):
         if obj.main != 'a':
             return True
         if obj.child_main != 'a':
@@ -62,5 +62,5 @@ class GuestAdmin(admin.ModelAdmin):
         else:
             return False
 
-    rsvp.boolean = True
+    received_rsvp.boolean = True
 
