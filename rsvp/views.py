@@ -69,13 +69,8 @@ class MainEvent(TemplateView):
         forms = zip(form, guests)
         if form.is_valid():
             print('Form is valid!')
-            messages.success(request, 'RSVP Successfully Sent!')
             form.save()
         else:
-            messages.error(
-                request,
-                'There was an error in sending the RSVP, please try again or contact Dan or Maryam Directly'
-            )
             print('Form is Not Valid!')
             print(form.errors)
         context = self.get_context_data()

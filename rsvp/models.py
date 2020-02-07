@@ -63,6 +63,8 @@ class Guest(models.Model):
     dietary = models.CharField(max_length=200, null=True, blank=True, verbose_name="Dietary Requirements")
     order = models.IntegerField(default=0)
 
+    rsvp = models.BooleanField(default=False)
+
     def full_name(self):
         return f'{self.first} {self.last}'
 

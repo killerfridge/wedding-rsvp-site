@@ -44,10 +44,13 @@
                         {{ zip_form.0.dietary|as_crispy_field}}
                     {% endif %}
                     {% else %}
-                    {{ zip_form.0.starter.as_hidden }}
-                    {{ zip_form.0.main.as_hidden }}
-                    {{ zip_form.0.dessert.as_hidden }}
-                    {{ zip_form.0.dietary.as_hidden }}
+                        {{ zip_form.0.starter.as_hidden }}
+                        {{ zip_form.0.main.as_hidden }}
+                        {{ zip_form.0.dessert.as_hidden }}
+                        {{ zip_form.0.dietary.as_hidden }}
+                        {{ zip_form.0.child_starter.as_hidden }}
+                        {{ zip_form.0.child_main.as_hidden }}
+                        {{ zip_form.0.child_dessert.as_hidden }}
                     {% endif %}
                     <hr>
                     {% endfor %}
