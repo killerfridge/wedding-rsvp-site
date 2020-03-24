@@ -2,6 +2,27 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from .models import Guest, Question
 from django.db.models import Q
+from django.http import HttpResponse
+import csv
+
+
+class ExportCsvMixin:
+    def export_as_csv(self, request, queryset):
+
+        meta = self.model._meta
+        field_names = [field.name for field in meta.fields]
+
+        response = HttpResponse(content_type='type/csv')
+
+        response['Content-Disposition'] = f'attachment; filename={meta}.csv'
+        writer = csv.writer(response)
+
+        writer.writerow(field_names)
+        for obj in queryset:
+            row = writer.writerow([getattr(obj, field) for field in field_names])
+
+        return response
+
 
 admin.site.register([
     Question
@@ -48,9 +69,10 @@ class HaveRSVPFilter(admin.SimpleListFilter):
 
 
 @admin.register(Guest)
-class GuestAdmin(admin.ModelAdmin):
+class GuestAdmin(admin.ModelAdmin, ExportCsvMixin):
     list_display = ('first', 'last', 'received_rsvp', 'attending')
     list_filter = ('attending', HaveRSVPFilter, DayGuestFilter)
+    actions = ['export_as_csv']
 
     def received_rsvp(self, obj):
         if obj.main != 'a':
